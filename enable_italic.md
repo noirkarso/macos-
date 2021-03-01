@@ -32,7 +32,9 @@ What it does according to the manpage:
        The command tic translates a terminfo file from source format into com-
        piled  format.   The  compiled  format  is  necessary  for use with the
        library routines in ncurses(3X).
-
+# install hack font for italic font
+download hack font
+double-click font file to install font into macos
        The results are  normally  placed  in  the  system  terminfo  directory
        /usr/share/terminfo.  There are two ways to change this behavior.
 
