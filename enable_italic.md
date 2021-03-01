@@ -52,3 +52,29 @@ What it does according to the manpage:
 ```
 So with the given command we are writing a new terminfo entry in the hidden ~/.terminfo directory. It takes the capabilities of the existing xterm-256color entry 
 (from /usr/share/terminfo/) and adds italics mode to it.
+
+# Addendum for tmux
+
+tmux uses its own terminfo files, they also need to be updated to use italics.
+
+    create a tmux.terminfo.txt file which contains
+
+
+tmux|tmux terminal multiplexer,
+  sitm=\E[3m, ritm=\E[23m,
+  smso=\E[7m, rmso=\E[27m,
+  use=screen,
+
+    create a tmux-256color.terminfo.txt file which contains
+
+
+tmux-256color|tmux with 256 colors,
+  sitm=\E[3m, ritm=\E[23m,
+  smso=\E[7m, rmso=\E[27m,
+  use=screen-256color,
+
+and run the tic command.
+
+tic -o ~/.terminfo tmux-256color.terminfo.txt
+and
+tic -o ~/.terminfo tmux.terminfo.txt
